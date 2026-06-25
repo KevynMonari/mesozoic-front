@@ -1,0 +1,76 @@
+.sidebar {
+  width: 260px;
+  height: 100vh;
+  background-color: var(--bg-secondary);
+  border-right: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.logo-section {
+  padding: 25px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.logo-icon{
+  font-size: 1.5rem;
+}
+
+.logo-section h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.logo-section h2 span{
+color: var(--accent-color);
+}
+
+.menu-items{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 25px 15px;
+  flex: 1;
+}
+
+.menu-item{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 15px;
+  color: var(--text-muted);
+  text-decoration: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 500;
+}
+
+.menu-item:hover {
+  background-color: var(--border-color);
+  color: var(--text-main);
+}
+
+.menu-item.active {
+  background-color: rgba(74, 222, 128, 0.1);
+  color: var(--accent-color);
+}
+
+.sidebar-footer {
+  padding: 20px 25px;
+  border-top: 1px solid var(--border-color);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.status-online {
+  color: var(--accent-color);
+  font-weight: bold;
+}

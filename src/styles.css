@@ -1,1 +1,38 @@
-/* You can add global styles to this file, and also import other style files */
+/* Configuração de Cores Globais */
+
+:root {
+  /* Paleta Dark Mode */
+  --bg-primary: #12141c; /*Fundo principal*/
+  --bg-secondary: #1e2230; /*Fundo dos cards*/
+  --text-main: #f3f4f6; /*Texto principal*/
+  --text-muted: #9ca3af; /*Texto secundário*/
+  --accent-color: #4ade80;
+  --accent-hover: #22c55e;
+  --border-color: #2d3446;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body{
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar{
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb{
+  background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb:hover{
+  background: var(--border-color);
+}
