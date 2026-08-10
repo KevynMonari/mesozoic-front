@@ -1,0 +1,58 @@
+<div class="detalhes-container" *ngIf="criatura">
+
+  <!-- Botão de Voltar -->
+  <button class="btn-voltar" routerLink="/criaturas">
+    ← Voltar para a Enciclopédia
+  </button>
+
+  <!-- Card Principal da Ficha -->
+  <div class="ficha-card">
+
+    <!-- Cabeçalho com Nome e Dieta -->
+    <div class="ficha-header">
+      <div class="titulos">
+        <h2>{{ criatura.nomePopular || criatura.nomeCientifico }}</h2>
+        <p class="nome-cientifico" *ngIf="criatura.nomePopular && criatura.nomeCientifico">
+          <em>{{ criatura.nomeCientifico }}</em>
+        </p>
+      </div>
+
+      <div class="dino-badge" [ngClass]="{
+        'carnivoro': criatura.dieta?.toLowerCase().includes('carn'),
+        'herbivoro': criatura.dieta?.toLowerCase().includes('herb')
+      }">
+        {{ criatura.dieta || 'Não informado' }}
+      </div>
+    </div>
+
+    <!-- Divisor -->
+    <div class="divider"></div>
+
+    <!-- Grid de Atributos do Dino -->
+    <div class="stats-grid">
+      <div class="stat-box">
+        <span class="label">Período Histórico</span>
+        <span class="value">{{ criatura.periodo?.nome || 'Período Desconhecido' }}</span>
+      </div>
+
+      <div class="stat-box">
+        <span class="label">Porte / Tamanho</span>
+        <span class="value">{{ criatura.tamanho || 'Não informado' }}</span>
+      </div>
+
+      <div class="stat-box">
+        <span class="label">Peso Estimado</span>
+        <span class="value">{{ criatura.peso ? (criatura.peso + ' kg') : 'Não informado' }}</span>
+      </div>
+    </div>
+
+    <!-- Seção de Curiosidade / Fatos -->
+    <div class="curiosidades-section">
+      <h3>Fatos & Curiosidades Catalogadas</h3>
+      <p class="curiosidade-texto">
+        {{ criatura.curiosidade || 'Nenhuma informação ou fato adicional foi registrado para esta espécie até o momento.' }}
+      </p>
+    </div>
+
+  </div>
+</div>

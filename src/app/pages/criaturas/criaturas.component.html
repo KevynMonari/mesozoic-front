@@ -1,0 +1,27 @@
+<div class="page-header">
+  <h2>Enciclopédia de Criaturas</h2>
+  <p>Gerencie e visualize as espécies catalogadas no ecosistema</p>
+</div>
+
+<div class="criaturas-grid">
+  <div class="dino-card cursor-pointer"
+       *ngFor="let criatura of criaturas" [routerLink]="['/criaturas', criatura.id]">
+    <div class="dino-badge" [ngClass]="{
+      'carnivoro': criatura.dieta?.toLowerCase().includes('carn'),
+      'herbivoro': criatura.dieta?.toLowerCase().includes('herb')
+
+      }">
+        {{ criatura.dieta }}
+    </div>
+    <div class="dino-info">
+      <h3>{{ criatura.nomePopular || criatura.nomeCientifico }}</h3>
+
+      <p class="periodo-tag">{{ criatura.periodo?.nome || 'Periodo Desconhecido' }}</p>
+
+      <div class="dino-details">
+        <span><strong>Tamanho:</strong> {{ criatura.tamanho || '0' }}</span>
+        <span><strong>Peso:</strong> {{ criatura.peso || '0' }}kg</span>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,82 @@
+.page-header h2{
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+.page-header p{
+  color: var(--text-muted);
+  margin-top: 5px;
+  margin-bottom: 30px;
+}
+
+.criaturas-grid{
+  display: grid;
+  grid-template-colums: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 25px;
+}
+
+.dino-card{
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.2s ease, border-color 0.2 ease;
+}
+
+.dino-card:hover{
+  transform: translateY(-5px);
+  border-color: var(--accent-color);
+}
+
+.dino-badge{
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.carnivoro{
+  background-color: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+}
+
+.herbivoro{
+  background-color: rgba(74, 222, 128, 0.15);
+  color: var(--accent-color);
+}
+
+.dino-info{
+  padding: 25px 20px;
+}
+
+.dino-info h3{
+  font-size: 1.3rem;
+  margin-bottom: 5px;
+  color: var(--text-main);
+}
+
+.periodo-tag{
+  font-size: 0.85rem;
+  color: var(--accent-color);
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+
+.dino-details{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border-color);
+  padding-top: 12px;
+}
+
+.cursor-pointer{
+  cursor: pointer;
+}
