@@ -1,4 +1,74 @@
-<h2>Visão Geral do Ecossistema</h2>
-<p style="color: var(--text-muted); margin-top: 10px;">
-  Aqui vão ficar os nossos cards com os contadores de dinossauros do banco de dados!
-</p>
+<div class="dashboard-container">
+
+  <div class="page-header">
+    <h2>Visão Geral do Ecossistema</h2>
+    <p>Métricas e estatísticas em tempo real da base de dados</p>
+  </div>
+
+  <!-- Cards de Métricas -->
+  <div class="metrics-grid">
+    <div class="metric-card">
+      <div class="metric-icon total">🦖</div>
+      <div class="metric-info">
+        <span class="label">Total de Criaturas</span>
+        <h3 class="value">{{ totalCriaturas }}</h3>
+      </div>
+    </div>
+
+    <div class="metric-card">
+      <div class="metric-icon carnivoro">🥩</div>
+      <div class="metric-info">
+        <span class="label">Carnívoros</span>
+        <h3 class="value carn-text">{{ totalCarnivoros }}</h3>
+      </div>
+    </div>
+
+    <div class="metric-card">
+      <div class="metric-icon herbivoro">🌿</div>
+      <div class="metric-info">
+        <span class="label">Herbívoros</span>
+        <h3 class="value herb-text">{{ totalHerbivoros }}</h3>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tabela de Últimas Adições -->
+  <div class="recent-section">
+    <div class="section-header">
+      <h3>Espécies Catalogadas Recentes</h3>
+      <button class="btn-ver-todos" routerLink="/criaturas">Ver todas →</button>
+    </div>
+
+    <div class="table-responsive">
+      <table>
+        <thead>
+        <tr>
+          <th>Nome Popular / Científico</th>
+          <th>Dieta</th>
+          <th>Período</th>
+          <th>Porte</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let item of ultimasCriaturas" [routerLink]="['/criaturas', item.id]" class="row-clickable">
+          <td>
+            <strong>{{ item.nomePopular || item.nomeCientifico }}</strong>
+            <small *ngIf="item.nomePopular && item.nomeCientifico"><br><em>{{ item.nomeCientifico }}</em></small>
+          </td>
+          <td>
+              <span class="dino-badge" [ngClass]="{
+                'carnivoro': item.dieta?.toLowerCase().includes('carn'),
+                'herbivoro': item.dieta?.toLowerCase().includes('herb')
+              }">
+                {{ item.dieta }}
+              </span>
+          </td>
+          <td>{{ item.periodo?.nome || 'Desconhecido' }}</td>
+          <td>{{ item.tamanho || 'N/I' }}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
