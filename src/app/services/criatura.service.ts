@@ -18,4 +18,16 @@ export class CriaturaService {
   getCriaturaById(id: number): Observable<any> {
     return this.http.get<any>(`${this.apiUrl}/${id}`);
   }
+
+  getPeriodos(): Observable<any[]> {
+    return this.http.get<any[]>('http://localhost:8080/api/periodos');
+  }
+
+  getFosseis(): Observable<any[]> {
+    return this.http.get<any[]>('http://localhost:8080/api/fosseis');
+  }
+
+  getRegioes(): Observable<any[]> {
+    return this.http.get<any[]>('http://localhost:8080/api/regioes');
+  }
 }

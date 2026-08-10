@@ -1,0 +1,60 @@
+<div class="page-container">
+
+  <!-- Seção 1: Regiões -->
+  <section class="section">
+    <div class="page-header">
+      <h2>Sítios Paleontológicos (Regiões)</h2>
+      <p>Locais de escavação e formações geológicas mapeadas</p>
+    </div>
+
+    <div class="cards-grid">
+      <div class="info-card" *ngFor="let r of regioes">
+        <div class="card-icon">📍</div>
+        <div class="card-body">
+          <h3>{{ r.nomeLocal }}</h3>
+          <p class="sub-info">{{ r.estado }} — {{ r.pais }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Divisor -->
+  <div class="divider"></div>
+
+  <!-- Seção 2: Fósseis -->
+  <section class="section">
+    <div class="page-header">
+      <h2>Fósseis Catalogados</h2>
+      <p>Registros fósseis, pegadas e achados paleontológicos</p>
+    </div>
+
+    <div class="table-responsive">
+      <table>
+        <thead>
+        <tr>
+          <th>Tipo de Fóssil</th>
+          <th>Ano da Descoberta</th>
+          <th>Paleontólogo / Equipe</th>
+          <th>Criatura Associada</th>
+          <th>Região</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let f of fosseis">
+          <td><strong>{{ f.tipoFossil }}</strong></td>
+          <td><span class="badge-year">{{ f.anoDescoberta }}</span></td>
+          <td>{{ f.paleontologo || 'Não informado' }}</td>
+          <td>
+              <span class="highlight-dino" *ngIf="f.criatura">
+                🦖 {{ f.criatura.nomePopular || f.criatura.nomeCientifico }}
+              </span>
+            <span *ngIf="!f.criatura" class="text-muted">N/A</span>
+          </td>
+          <td>{{ f.regiao?.nomeLocal || 'Não vinculada' }}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+</div>

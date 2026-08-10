@@ -8,6 +8,8 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { CriaturasComponent } from './pages/criaturas/criaturas.component';
 import { CriaturaDetalheComponent } from './pages/criatura-detalhe/criatura-detalhe.component';
+import { PeriodosComponent } from './pages/periodos/periodos.component';
+import { FosseisRegioesComponent } from './pages/fosseis-regioes/fosseis-regioes.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { CriaturaDetalheComponent } from './pages/criatura-detalhe/criatura-deta
     SidebarComponent,
     DashboardComponent,
     CriaturasComponent,
-    CriaturaDetalheComponent
+    CriaturaDetalheComponent,
+    PeriodosComponent,
+    FosseisRegioesComponent
   ],
   imports: [
     BrowserModule,

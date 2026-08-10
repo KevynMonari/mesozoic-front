@@ -1,0 +1,23 @@
+<div class="periodos-container">
+  <div class="page-header">
+    <h2>Períodos Históricos</h2>
+    <p>Eras geológicas e temporais catalogadas na era Mesozoica</p>
+  </div>
+
+  <div class="periodos-grid">
+    <div class="periodo-card" *ngFor="let p of periodos">
+      <div class="periodo-header">
+        <h3>{{ p.nome }}</h3>
+        <span class="era-tag">{{ p.epoca }}</span>
+      </div>
+
+      <div class="clima-info" *ngIf="p.clima">
+        <span class="label">Clima:</span> {{ p.clima }}
+      </div>
+
+      <p class="periodo-descricao">
+        {{ p.descricao || 'Sem descrição cadastrada para este período.' }}
+      </p>
+    </div>
+  </div>
+</div>
