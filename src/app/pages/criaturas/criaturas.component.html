@@ -3,9 +3,30 @@
   <p>Gerencie e visualize as espécies catalogadas no ecossistema</p>
 </div>
 
+<div class="filter-bar">
+  <div class="search-input-wrapper">
+    <span class="search-icon">🔍</span>
+    <input
+      type="text"
+      placeholder="Buscar por nome popular ou científico..."
+      [(ngModel)]="termoBusca"
+      class="search-input"
+    />
+  </div>
+</div>
+
+<div class="filter-select-wrapper">
+  <select [(ngModel)]="dietaFiltro" class="filter-select">
+    <option value="TODAS">Todas as Dietas</option>
+    <option value="carn">Carnívoros 🥩</option>
+    <option value="herb">Herbívoros 🌿</option>
+    <option value="oniv">Onívoros 🦴</option>
+  </select>
+</div>
+
 <div class="criaturas-grid">
   <div class="dino-card cursor-pointer"
-       *ngFor="let criatura of criaturas" [routerLink]="['/criaturas', criatura.id]">
+       *ngFor="let criatura of criaturasFiltradas" [routerLink]="['/criaturas', criatura.id]">
 
     <!-- Imagem da Criatura -->
     <div class="dino-image-container">

@@ -51,6 +51,7 @@ color: var(--accent-color);
   cursor: pointer;
   transition: all 0.2s ease;
   font-weight: 500;
+  outline: none;
 }
 
 .menu-item:hover {
