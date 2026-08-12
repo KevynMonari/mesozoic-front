@@ -1,22 +1,37 @@
 <div class="page-header">
   <h2>Enciclopédia de Criaturas</h2>
-  <p>Gerencie e visualize as espécies catalogadas no ecosistema</p>
+  <p>Gerencie e visualize as espécies catalogadas no ecossistema</p>
 </div>
 
 <div class="criaturas-grid">
   <div class="dino-card cursor-pointer"
        *ngFor="let criatura of criaturas" [routerLink]="['/criaturas', criatura.id]">
-    <div class="dino-badge" [ngClass]="{
-      'carnivoro': criatura.dieta?.toLowerCase().includes('carn'),
-      'herbivoro': criatura.dieta?.toLowerCase().includes('herb')
 
-      }">
-        {{ criatura.dieta }}
+    <!-- Imagem da Criatura -->
+    <div class="dino-image-container">
+      <img *ngIf="criatura.imagemUrl; else placeholder"
+           [src]="criatura.imagemUrl"
+           [alt]="criatura.nomePopular || criatura.nomeCientifico"
+           class="dino-image">
+      <ng-template #placeholder>
+        <div class="dino-image-placeholder">
+          <span>Sem Imagem</span>
+        </div>
+      </ng-template>
     </div>
+
+    <div class="dino-badge" [ngClass]="{
+      'carnivoro': criatura.dieta?.toLowerCase()?.includes('carn'),
+      'herbivoro': criatura.dieta?.toLowerCase()?.includes('herb'),
+      'onivoro': criatura.dieta?.toLowerCase()?.includes('oniv')
+      }">
+      {{ criatura.dieta }}
+    </div>
+
     <div class="dino-info">
       <h3>{{ criatura.nomePopular || criatura.nomeCientifico }}</h3>
 
-      <p class="periodo-tag">{{ criatura.periodo?.nome || 'Periodo Desconhecido' }}</p>
+      <p class="periodo-tag">{{ criatura.periodo?.nome || 'Período Desconhecido' }}</p>
 
       <div class="dino-details">
         <span><strong>Tamanho:</strong> {{ criatura.tamanho || '0' }}</span>

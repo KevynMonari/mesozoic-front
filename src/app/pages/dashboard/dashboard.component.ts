@@ -11,6 +11,7 @@ export class DashboardComponent implements OnInit {
   totalCriaturas: number = 0;
   totalCarnivoros: number = 0;
   totalHerbivoros: number = 0;
+  totalOnivoros: number = 0;
   ultimasCriaturas: any[] = [];
 
   constructor(private criaturaService: CriaturaService) { }
@@ -30,6 +31,10 @@ ngOnInit(): void {
 
         this.totalHerbivoros = dados.filter(c =>
           c.dieta?.toLowerCase().includes('herb')
+        ).length;
+
+        this.totalOnivoros = dados.filter(c =>
+          c.dieta?.toLowerCase().includes('oniv') || c.dieta?.toLowerCase().includes('ôniv')
         ).length;
 
         this.ultimasCriaturas = dados.slice(-5).reverse();

@@ -1,34 +1,51 @@
 <div class="detalhes-container" *ngIf="criatura">
 
-  <!-- Botão de Voltar -->
   <button class="btn-voltar" routerLink="/criaturas">
     ← Voltar para a Enciclopédia
   </button>
 
-  <!-- Card Principal da Ficha -->
   <div class="ficha-card">
 
-    <!-- Cabeçalho com Nome e Dieta -->
-    <div class="ficha-header">
-      <div class="titulos">
-        <h2>{{ criatura.nomePopular || criatura.nomeCientifico }}</h2>
-        <p class="nome-cientifico" *ngIf="criatura.nomePopular && criatura.nomeCientifico">
-          <em>{{ criatura.nomeCientifico }}</em>
-        </p>
+    <div class="hero-section">
+
+      <div class="imagem-container">
+        <img *ngIf="criatura.imagemUrl; else noImg"
+             [src]="criatura.imagemUrl"
+             [alt]="criatura.nomePopular || criatura.nomeCientifico"
+             class="dino-imagem">
+        <ng-template #noImg>
+          <div class="imagem-placeholder">
+            <span>Sem imagem catalogada</span>
+          </div>
+        </ng-template>
+
+        <div class="dino-badge" [ngClass]="{
+          'carnivoro': criatura.dieta?.toLowerCase()?.includes('carn'),
+          'herbivoro': criatura.dieta?.toLowerCase()?.includes('herb'),
+          'onivoro': criatura.dieta?.toLowerCase()?.includes('oniv')
+        }">
+          {{ criatura.dieta || 'Não informado' }}
+        </div>
       </div>
 
-      <div class="dino-badge" [ngClass]="{
-        'carnivoro': criatura.dieta?.toLowerCase().includes('carn'),
-        'herbivoro': criatura.dieta?.toLowerCase().includes('herb')
-      }">
-        {{ criatura.dieta || 'Não informado' }}
+      <div class="hero-info">
+        <div class="titulos">
+          <h2>{{ criatura.nomePopular || criatura.nomeCientifico }}</h2>
+          <p class="nome-cientifico" *ngIf="criatura.nomePopular && criatura.nomeCientifico">
+            <em>{{ criatura.nomeCientifico }}</em>
+          </p>
+        </div>
+
+        <div class="periodo-destaque">
+          <span class="periodo-label">Período Histórico</span>
+          <span class="periodo-value">{{ criatura.periodo?.nome || 'Período Desconhecido' }}</span>
+        </div>
       </div>
+
     </div>
 
-    <!-- Divisor -->
     <div class="divider"></div>
 
-    <!-- Grid de Atributos do Dino -->
     <div class="stats-grid">
       <div class="stat-box">
         <span class="label">Período Histórico</span>
@@ -46,7 +63,6 @@
       </div>
     </div>
 
-    <!-- Seção de Curiosidade / Fatos -->
     <div class="curiosidades-section">
       <h3>Fatos & Curiosidades Catalogadas</h3>
       <p class="curiosidade-texto">

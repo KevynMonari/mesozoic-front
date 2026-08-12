@@ -1,82 +1,124 @@
-.page-header h2{
+.page-header h2 {
   font-size: 1.75rem;
   font-weight: 700;
 }
 
-.page-header p{
+.page-header p {
   color: var(--text-muted);
   margin-top: 5px;
   margin-bottom: 30px;
 }
 
-.criaturas-grid{
+.criaturas-grid {
   display: grid;
-  grid-template-colums: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); /* Corrigido: columns com 'n' */
   gap: 25px;
 }
 
-.dino-card{
+.dino-card {
   background-color: var(--bg-secondary);
   border: 1px solid var(--border-color);
   border-radius: 12px;
   overflow: hidden;
   position: relative;
-  transition: transform 0.2s ease, border-color 0.2 ease;
+  transition: transform 0.2s ease, border-color 0.2s ease; /* Corrigido: 0.2s */
 }
 
-.dino-card:hover{
+.dino-card:hover {
   transform: translateY(-5px);
   border-color: var(--accent-color);
 }
 
-.dino-badge{
+.dino-card:hover .dino-image {
+  transform: scale(1.05); /* Zoom suave na foto ao passar o mouse */
+}
+
+/* Container e Foto do Dino */
+.dino-image-container {
+  width: 100%;
+  height: 160px;
+  overflow: hidden;
+  background-color: #0b1120;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.dino-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.dino-image-placeholder {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+/* Badge por cima da imagem */
+.dino-badge {
   position: absolute;
-  top: 15px;
-  right: 15px;
-  padding: 5px 10px;
+  top: 12px;
+  right: 12px;
+  padding: 4px 10px;
   border-radius: 20px;
   font-size: 0.75rem;
   font-weight: bold;
   text-transform: uppercase;
+  z-index: 2;
+  backdrop-filter: blur(4px); /* Suaviza o fundo por baixo da tag */
 }
 
-.carnivoro{
-  background-color: rgba(239, 68, 68, 0.15);
+.carnivoro {
+  background-color: rgba(0, 0, 0, 0.25);
   color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.4);
 }
 
-.herbivoro{
-  background-color: rgba(74, 222, 128, 0.15);
-  color: var(--accent-color);
+.herbivoro {
+  background-color: rgba(0, 0, 0, 0.25);
+  color: #4ade80;
+  border: 1px solid rgba(74, 222, 128, 0.4);
 }
 
-.dino-info{
-  padding: 25px 20px;
+/* Informações do Dino */
+.dino-info {
+  padding: 20px;
 }
 
-.dino-info h3{
-  font-size: 1.3rem;
+.dino-info h3 {
+  font-size: 1.25rem;
   margin-bottom: 5px;
   color: var(--text-main);
 }
 
-.periodo-tag{
+.periodo-tag {
   font-size: 0.85rem;
   color: var(--accent-color);
   margin-bottom: 15px;
   font-weight: 500;
 }
 
-.dino-details{
+.dino-details {
   display: flex;
   flex-direction: column;
   gap: 5px;
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   color: var(--text-muted);
   border-top: 1px solid var(--border-color);
   padding-top: 12px;
 }
 
-.cursor-pointer{
+.cursor-pointer {
   cursor: pointer;
+}
+
+
+.dino-badge.onivoro {
+  background: rgba(245, 158, 11, 0.25);
+  color: #fbbf24;
+  border: 1px solid rgba(245, 158, 11, 0.4);
 }

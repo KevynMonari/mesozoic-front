@@ -1,11 +1,11 @@
 .detalhes-container {
   padding: 2rem;
-  max-width: 900px;
+  max-width: 950px;
   margin: 0 auto;
   color: #e2e8f0;
 }
 
-/* Botão Voltar */
+
 .btn-voltar {
   background: transparent;
   border: 1px solid #334155;
@@ -26,7 +26,7 @@
   transform: translateX(-3px);
 }
 
-/* Ficha Card Principal */
+
 .ficha-card {
   background: #0f172a;
   border: 1px solid #1e293b;
@@ -35,12 +35,55 @@
   box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
 }
 
-/* Header */
-.ficha-header {
+
+.hero-section {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+.imagem-container {
+  position: relative;
+  width: 100%;
+  height: 240px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #182234;
+  border: 1px solid #283548;
+}
+
+.dino-imagem {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.imagem-placeholder {
+  width: 100%;
+  height: 100%;
   display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+
+.hero-info {
+  display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  align-items: flex-start;
-  gap: 1rem;
+  height: 100%;
+  min-height: 240px;
 }
 
 .titulos h2 {
@@ -52,40 +95,69 @@
 }
 
 .nome-cientifico {
-  margin: 0.3rem 0 0 0;
+  margin: 0.4rem 0 0 0;
   color: #64748b;
-  font-size: 1.1rem;
+  font-size: 1.15rem;
 }
 
-/* Badges */
+
+.periodo-destaque {
+  background: #182234;
+  border-left: 3px solid #38bdf8;
+  padding: 1rem 1.2rem;
+  border-radius: 0 8px 8px 0;
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.periodo-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: #64748b;
+  font-weight: 600;
+}
+
+.periodo-value {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #38bdf8;
+}
+
+
 .dino-badge {
-  padding: 0.4rem 1rem;
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  padding: 0.4rem 0.9rem;
   border-radius: 20px;
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  backdrop-filter: blur(4px);
 }
 
 .dino-badge.carnivoro {
-  background: rgba(239, 68, 68, 0.15);
+  background: rgba(239, 68, 68, 0.25);
   color: #f87171;
-  border: 1px solid rgba(239, 68, 68, 0.3);
+  border: 1px solid rgba(239, 68, 68, 0.4);
 }
 
 .dino-badge.herbivoro {
-  background: rgba(34, 197, 94, 0.15);
+  background: rgba(34, 197, 94, 0.25);
   color: #4ade80;
-  border: 1px solid rgba(34, 197, 94, 0.3);
+  border: 1px solid rgba(34, 197, 94, 0.4);
 }
 
 .divider {
   height: 1px;
   background: #1e293b;
-  margin: 1.5rem 0;
+  margin: 1.8rem 0;
 }
 
-/* Grid de Status */
 .stats-grid {
   display: flex;
   gap: 1rem;
@@ -119,7 +191,6 @@
   font-weight: 600;
 }
 
-/* Curiosidades */
 .curiosidades-section {
   background: #182234;
   border-left: 4px solid #38bdf8;
@@ -140,4 +211,10 @@
   line-height: 1.6;
   color: #94a3b8;
   font-size: 0.95rem;
+}
+
+.dino-badge.onivoro {
+  background: rgba(245, 158, 11, 0.25);
+  color: #fbbf24;
+  border: 1px solid rgba(245, 158, 11, 0.4);
 }
